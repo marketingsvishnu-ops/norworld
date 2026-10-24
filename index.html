@@ -1,0 +1,1152 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYBERCORE 4D | Future Fitness</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #090a0d;
+  --panel: #111319;
+  --pink: #ff2bcb;
+  --lime: #c5ff35;
+  --white: #f5f5f7;
+  --muted: #9396a3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Rajdhani', sans-serif;
+  overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+
+button, input, select {
+  font: inherit;
+}
+
+button, a { -webkit-tap-highlight-color: transparent; }
+
+.navbar {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  width: 100%;
+  padding: 20px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(9,10,13,.83);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid #ffffff12;
+}
+
+.logo {
+  font: 900 20px 'Orbitron', sans-serif;
+  letter-spacing: -1px;
+}
+
+.logo span { color: var(--pink); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-links a {
+  color: #d0d0d8;
+  font-size: 16px;
+  transition: .25s;
+}
+
+.nav-links a:hover { color: var(--lime); }
+
+.nav-cta {
+  padding: 11px 19px;
+  background: var(--lime);
+  color: #111 !important;
+  font-weight: 700;
+  clip-path: polygon(0 0,100% 0,100% 75%,90% 100%,0 100%);
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  color: white;
+  border: 0;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.hero {
+  min-height: 100vh;
+  padding: 145px 7% 80px;
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  align-items: center;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(#ffffff09 1px,transparent 1px),
+    linear-gradient(90deg,#ffffff09 1px,transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, black, transparent 90%);
+  animation: gridMove 14s linear infinite;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: var(--pink);
+  filter: blur(180px);
+  opacity: .13;
+  right: 5%;
+  top: 15%;
+  z-index: -1;
+}
+
+@keyframes gridMove {
+  to { background-position: 48px 48px; }
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--lime);
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 25px;
+  height: 2px;
+  background: var(--lime);
+}
+
+.hero h1 {
+  font: 900 clamp(44px,6.6vw,94px)/.99 'Orbitron', sans-serif;
+  letter-spacing: -5px;
+  margin: 25px 0;
+}
+
+.hero h1 .pink {
+  color: var(--pink);
+  text-shadow: 0 0 35px #ff2bcb45;
+}
+
+.hero h1 .outline {
+  color: transparent;
+  -webkit-text-stroke: 1px #f5f5f7;
+}
+
+.hero p {
+  color: var(--muted);
+  max-width: 490px;
+  font-size: 20px;
+  line-height: 1.55;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 24px;
+  border: 1px solid transparent;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.btn-primary {
+  color: #111;
+  background: var(--lime);
+  clip-path: polygon(0 0,100% 0,100% 72%,90% 100%,0 100%);
+}
+
+.btn-primary:hover {
+  background: white;
+  transform: translateY(-3px);
+}
+
+.btn-outline {
+  border-color: #ffffff35;
+  background: #ffffff05;
+}
+
+.btn-outline:hover {
+  border-color: var(--pink);
+  color: var(--pink);
+}
+
+.hero-stats {
+  display: flex;
+  gap: 35px;
+  margin-top: 48px;
+  flex-wrap: wrap;
+}
+
+.stat strong {
+  display: block;
+  font: 700 27px 'Orbitron', sans-serif;
+}
+
+.stat span {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.visual {
+  min-height: 490px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  perspective: 1000px;
+}
+
+.orbit {
+  position: absolute;
+  width: min(38vw, 430px);
+  aspect-ratio: 1;
+  border: 1px solid #ff2bcb7a;
+  border-radius: 50%;
+  transform: rotateX(67deg) rotateZ(-20deg);
+  box-shadow: 0 0 30px #ff2bcb13, inset 0 0 25px #ff2bcb0c;
+}
+
+.orbit.two {
+  width: min(31vw, 350px);
+  border-color: #c5ff357a;
+  transform: rotateX(67deg) rotateZ(45deg);
+  animation: orbit 13s linear infinite;
+}
+
+.orbit.three {
+  width: min(43vw, 490px);
+  border-style: dashed;
+  border-color: #ffffff2d;
+  transform: rotateX(72deg) rotateZ(0deg);
+  animation: orbit 25s linear infinite reverse;
+}
+
+@keyframes orbit {
+  to { transform: rotateX(67deg) rotateZ(405deg); }
+}
+
+.core {
+  width: clamp(170px, 22vw, 270px);
+  aspect-ratio: 1;
+  position: relative;
+  display: grid;
+  place-items: center;
+  transform-style: preserve-3d;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0) rotateY(0deg); }
+  50% { transform: translateY(-15px) rotateY(18deg); }
+}
+
+.core-ring {
+  position: absolute;
+  inset: 0;
+  border: 3px solid var(--pink);
+  border-radius: 30%;
+  transform: rotate(45deg);
+  box-shadow: 0 0 25px #ff2bcb55, inset 0 0 25px #ff2bcb20;
+}
+
+.core-ring.r2 {
+  inset: 20px;
+  border-color: var(--lime);
+  border-radius: 50%;
+  transform: rotateX(65deg) rotateZ(20deg);
+  box-shadow: 0 0 30px #c5ff3540;
+}
+
+.core-ring.r3 {
+  inset: 38px;
+  border-color: #a16bff;
+  border-radius: 15%;
+  transform: rotateY(65deg) rotateZ(45deg);
+  animation: spin 8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotateY(65deg) rotateZ(405deg); }
+}
+
+.core-center {
+  width: 85px;
+  height: 85px;
+  background: radial-gradient(circle at 35% 30%, #fff, var(--pink) 25%, #6d148e 65%, #100d21);
+  border-radius: 50%;
+  box-shadow: 0 0 35px var(--pink), 0 0 100px #ff2bcb66;
+}
+
+.float-label {
+  position: absolute;
+  padding: 10px 14px;
+  background: #111319d9;
+  border: 1px solid #ffffff20;
+  backdrop-filter: blur(12px);
+  font: 11px 'Orbitron', sans-serif;
+  letter-spacing: 1px;
+}
+
+.float-label b { color: var(--lime); }
+.label-one { top: 14%; right: 1%; }
+.label-two { bottom: 18%; left: 0; }
+.label-three { bottom: 7%; right: 8%; }
+
+.ticker {
+  overflow: hidden;
+  background: var(--lime);
+  color: #101010;
+  transform: rotate(-1deg) scale(1.02);
+  padding: 14px 0;
+  font: 800 16px 'Orbitron', sans-serif;
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  gap: 30px;
+  animation: ticker 25s linear infinite;
+}
+
+.ticker-track span { white-space: nowrap; }
+
+@keyframes ticker {
+  to { transform: translateX(-50%); }
+}
+
+.section {
+  padding: 100px 7%;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 25px;
+  margin-bottom: 45px;
+}
+
+.section-head h2 {
+  font: 800 clamp(30px,4vw,52px)/1.1 'Orbitron', sans-serif;
+  margin-top: 15px;
+}
+
+.section-head p {
+  max-width: 350px;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.program-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 18px;
+}
+
+.program-card {
+  min-height: 320px;
+  padding: 28px;
+  background: linear-gradient(145deg,#151720,#0d0e13);
+  border: 1px solid #ffffff12;
+  position: relative;
+  overflow: hidden;
+  transition: .35s;
+}
+
+.program-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--pink);
+}
+
+.program-number {
+  font: 700 12px 'Orbitron', sans-serif;
+  color: var(--lime);
+  letter-spacing: 2px;
+}
+
+.program-icon {
+  font-size: 38px;
+  margin: 35px 0 20px;
+  display: block;
+}
+
+.program-card h3 {
+  font: 700 21px 'Orbitron', sans-serif;
+  margin-bottom: 12px;
+}
+
+.program-card p {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.program-card a {
+  display: inline-block;
+  margin-top: 20px;
+  color: var(--pink);
+  font-weight: 700;
+}
+
+.program-card::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  right: -50px;
+  bottom: -50px;
+  border: 1px solid #ff2bcb40;
+  transform: rotate(45deg);
+}
+
+.lab {
+  background: #0e1015;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.lab-art {
+  min-height: 380px;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at center,#ff2bcb1b,transparent 52%),
+    linear-gradient(135deg,#17141e,#0a0b10);
+  border: 1px solid #ffffff14;
+  position: relative;
+  overflow: hidden;
+}
+
+.lab-art::before,
+.lab-art::after {
+  content: "";
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  border: 1px solid #c5ff3555;
+  transform: rotate(45deg);
+  animation: spin 20s linear infinite;
+}
+
+.lab-art::after {
+  width: 160px;
+  height: 160px;
+  border-color: #ff2bcb99;
+  animation-direction: reverse;
+}
+
+.lab-symbol {
+  z-index: 1;
+  font: 900 62px 'Orbitron', sans-serif;
+  color: var(--lime);
+  text-shadow: 0 0 35px #c5ff3580;
+}
+
+.lab-content h2 {
+  font: 800 clamp(30px,4vw,48px)/1.15 'Orbitron', sans-serif;
+  margin: 18px 0;
+}
+
+.lab-content > p {
+  color: var(--muted);
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+.feature-list {
+  list-style: none;
+  margin: 25px 0 30px;
+}
+
+.feature-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid #ffffff13;
+  font-size: 18px;
+}
+
+.feature-list li::before {
+  content: "✦";
+  color: var(--pink);
+  margin-right: 12px;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 18px;
+}
+
+.price-card {
+  background: var(--panel);
+  border: 1px solid #ffffff17;
+  padding: 32px 27px;
+  position: relative;
+}
+
+.price-card.featured {
+  border: 1px solid var(--lime);
+  background: linear-gradient(160deg,#1a2115,#101119 60%);
+}
+
+.plan-label {
+  font: 700 12px 'Orbitron', sans-serif;
+  letter-spacing: 2px;
+  color: var(--pink);
+}
+
+.featured .plan-label { color: var(--lime); }
+
+.price-card h3 {
+  font: 700 23px 'Orbitron', sans-serif;
+  margin: 20px 0 8px;
+}
+
+.price {
+  font: 800 38px 'Orbitron', sans-serif;
+  margin: 20px 0;
+}
+
+.price small {
+  font: 500 15px 'Rajdhani', sans-serif;
+  color: var(--muted);
+}
+
+.price-card ul {
+  list-style: none;
+  margin: 25px 0;
+}
+
+.price-card li {
+  padding: 10px 0;
+  color: #c4c5ce;
+  border-bottom: 1px solid #ffffff0d;
+  font-size: 17px;
+}
+
+.price-card li::before {
+  content: "＋";
+  color: var(--lime);
+  margin-right: 10px;
+}
+
+.price-card .btn { width: 100%; }
+
+.bmi-section {
+  background: linear-gradient(120deg,#16101b,#0c1014);
+}
+
+.bmi-wrap {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.bmi-info h2 {
+  font: 800 clamp(32px,4vw,48px)/1.1 'Orbitron', sans-serif;
+  margin: 20px 0;
+}
+
+.bmi-info p {
+  color: var(--muted);
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+.bmi-box {
+  background: #111319;
+  padding: 32px;
+  border: 1px solid #ffffff17;
+}
+
+.form-group { margin-bottom: 20px; }
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 14px;
+  background: #090a0d;
+  color: white;
+  border: 1px solid #343640;
+  outline: none;
+  border-radius: 0;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--pink);
+}
+
+.bmi-result {
+  display: none;
+  margin-top: 22px;
+  padding: 20px;
+  border-left: 3px solid var(--lime);
+  background: #c5ff350d;
+}
+
+.bmi-result h3 {
+  color: var(--lime);
+  font: 700 24px 'Orbitron', sans-serif;
+}
+
+.bmi-result p { margin-top: 8px; color: #c6c7d0; }
+
+.contact {
+  text-align: center;
+  padding: 100px 7%;
+  background:
+    radial-gradient(ellipse at 50% 100%,#ff2bcb1b,transparent 55%),
+    #090a0d;
+}
+
+.contact h2 {
+  font: 900 clamp(35px,6vw,70px)/1.1 'Orbitron', sans-serif;
+  margin: 22px auto;
+  max-width: 850px;
+}
+
+.contact h2 span { color: var(--pink); }
+
+.contact p {
+  max-width: 550px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 19px;
+}
+
+.contact .btn { margin-top: 30px; }
+
+footer {
+  padding: 28px 7%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  border-top: 1px solid #ffffff15;
+  color: var(--muted);
+}
+
+footer strong {
+  font-family: 'Orbitron', sans-serif;
+  color: white;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; padding-top: 140px; }
+  .hero-copy { text-align: center; }
+  .hero-copy .eyebrow { justify-content: center; }
+  .hero p { margin: auto; }
+  .hero-buttons, .hero-stats { justify-content: center; }
+  .visual { min-height: 410px; }
+  .orbit { width: 300px; }
+  .orbit.two { width: 250px; }
+  .orbit.three { width: 340px; }
+  .program-grid, .pricing-grid { grid-template-columns: repeat(2,1fr); }
+  .lab, .bmi-wrap { grid-template-columns: 1fr; }
+  .section-head { align-items: start; flex-direction: column; }
+}
+
+@media (max-width: 620px) {
+  .navbar { padding: 18px 5%; }
+  .menu-toggle { display: block; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    width: 100%;
+    padding: 22px 5%;
+    background: #0d0e13;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+    border-bottom: 1px solid #ffffff17;
+  }
+  .nav-links.open { display: flex; }
+  .nav-cta { text-align: center; }
+  .hero { padding: 125px 5% 50px; }
+  .hero h1 { letter-spacing: -3px; }
+  .hero p { font-size: 18px; }
+  .hero-stats { gap: 23px; }
+  .stat strong { font-size: 22px; }
+  .visual { min-height: 330px; }
+  .orbit { width: 235px; }
+  .orbit.two { width: 190px; }
+  .orbit.three { width: 270px; }
+  .core { width: 165px; }
+  .core-center { width: 60px; height: 60px; }
+  .float-label { font-size: 9px; padding: 7px; }
+  .section { padding: 70px 5%; }
+  .program-grid, .pricing-grid { grid-template-columns: 1fr; }
+  .program-card { min-height: 270px; }
+  .lab-art { min-height: 290px; }
+  .bmi-box { padding: 22px; }
+  .contact { padding: 75px 5%; }
+  footer { padding: 25px 5%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <a class="logo" href="#home">CYBER<span>CORE</span></a>
+
+  <button class="menu-toggle" id="menuToggle"
+          aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+  <nav class="nav-links" id="navLinks">
+    <a href="#home">Home</a>
+    <a href="#programs">Programs</a>
+    <a href="#experience">4D Experience</a>
+    <a href="#membership">Membership</a>
+    <a href="#bmi">BMI</a>
+    <a href="#contact" class="nav-cta">JOIN THE CORE ↗</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="hero-copy">
+      <span class="eyebrow">Fitness beyond reality</span>
+
+      <h1>
+        ENTER THE<br>
+        <span class="pink">NEXT</span><br>
+        <span class="outline">DIMENSION.</span>
+      </h1>
+
+      <p>
+        This is more than a gym. Step into an immersive training universe
+        where futuristic design meets real-world strength.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#membership" class="btn btn-primary">START YOUR EVOLUTION ↗</a>
+        <a href="#programs" class="btn btn-outline">EXPLORE PROGRAMS</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <strong>4D</strong>
+          <span>Immersive training</span>
+        </div>
+        <div class="stat">
+          <strong>24/7</strong>
+          <span>Your goals, your time</span>
+        </div>
+        <div class="stat">
+          <strong>∞</strong>
+          <span>Potential unlocked</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual" aria-label="Animated futuristic 3D energy core">
+      <div class="orbit"></div>
+      <div class="orbit two"></div>
+      <div class="orbit three"></div>
+
+      <div class="core">
+        <div class="core-ring"></div>
+        <div class="core-ring r2"></div>
+        <div class="core-ring r3"></div>
+        <div class="core-center"></div>
+      </div>
+
+      <div class="float-label label-one">CORE STATUS: <b>ACTIVE</b></div>
+      <div class="float-label label-two">SYSTEM <b>4D / ONLINE</b></div>
+      <div class="float-label label-three">LIMITS: <b>DELETED</b></div>
+    </div>
+  </section>
+
+  <div class="ticker">
+    <div class="ticker-track">
+      <span>✦ BREAK LIMITS</span><span>✦ BUILD POWER</span>
+      <span>✦ TRAIN DIFFERENT</span><span>✦ ENTER 4D</span>
+      <span>✦ BREAK LIMITS</span><span>✦ BUILD POWER</span>
+      <span>✦ TRAIN DIFFERENT</span><span>✦ ENTER 4D</span>
+    </div>
+  </div>
+
+  <section class="section" id="programs">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">Choose your protocol</span>
+        <h2>TRAIN YOUR<br>WAY FORWARD.</h2>
+      </div>
+      <p>Different missions. One objective: become a stronger version of yourself.</p>
+    </div>
+
+    <div class="program-grid">
+      <article class="program-card reveal">
+        <span class="program-number">PROGRAM_01</span>
+        <span class="program-icon">ϟ</span>
+        <h3>POWER PROTOCOL</h3>
+        <p>Progressive strength training designed to build muscle, power and confidence.</p>
+        <a href="#membership">SELECT PROGRAM ↗</a>
+      </article>
+
+      <article class="program-card reveal">
+        <span class="program-number">PROGRAM_02</span>
+        <span class="program-icon">◈</span>
+        <h3>NEON CONDITIONING</h3>
+        <p>High-energy conditioning sessions built around endurance, agility and movement.</p>
+        <a href="#membership">SELECT PROGRAM ↗</a>
+      </article>
+
+      <article class="program-card reveal">
+        <span class="program-number">PROGRAM_03</span>
+        <span class="program-icon">⟁</span>
+        <h3>BODY RECODE</h3>
+        <p>Combine resistance training, sustainable habits and personal progress tracking.</p>
+        <a href="#membership">SELECT PROGRAM ↗</a>
+      </article>
+
+      <article class="program-card reveal">
+        <span class="program-number">PROGRAM_04</span>
+        <span class="program-icon">◎</span>
+        <h3>CORE CONTROL</h3>
+        <p>Improve balance, mobility, stability and control through focused movement.</p>
+        <a href="#membership">SELECT PROGRAM ↗</a>
+      </article>
+
+      <article class="program-card reveal">
+        <span class="program-number">PROGRAM_05</span>
+        <span class="program-icon">✳</span>
+        <h3>PERSONAL TRAINING</h3>
+        <p>Individual coaching with a plan shaped around your goals and experience.</p>
+        <a href="#contact">MEET YOUR COACH ↗</a>
+      </article>
+
+      <article class="program-card reveal">
+        <span class="program-number">PROGRAM_06</span>
+        <span class="program-icon">⌘</span>
+        <h3>RECOVERY MODE</h3>
+        <p>Give mobility, rest and recovery the attention they deserve in your routine.</p>
+        <a href="#contact">EXPLORE RECOVERY ↗</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="section lab" id="experience">
+    <div class="lab-art reveal">
+      <div class="lab-symbol">4D<span style="color:#ff2bcb">+</span></div>
+    </div>
+
+    <div class="lab-content reveal">
+      <span class="eyebrow">Beyond the ordinary</span>
+      <h2>WELCOME TO<br>THE FITNESS LAB.</h2>
+      <p>
+        Experience a bold training environment built to keep your energy high
+        and your goals in focus. Every session is a chance to level up.
+      </p>
+
+      <ul class="feature-list">
+        <li>Next-generation gym atmosphere</li>
+        <li>Strength and functional training zones</li>
+        <li>Goal-focused coaching options</li>
+        <li>Training plans for different experience levels</li>
+      </ul>
+
+      <a href="#contact" class="btn btn-primary">DISCOVER YOUR POTENTIAL ↗</a>
+    </div>
+  </section>
+
+  <section class="section" id="membership">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">Access granted</span>
+        <h2>CHOOSE YOUR<br>LEVEL.</h2>
+      </div>
+      <p>Find the membership that matches your training ambitions.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <article class="price-card reveal">
+        <span class="plan-label">LEVEL 01 / STARTER</span>
+        <h3>INITIATE</h3>
+        <p style="color:var(--muted)">For building your routine.</p>
+        <div class="price">$29<small> / month</small></div>
+        <ul>
+          <li>Gym floor access</li>
+          <li>Strength equipment</li>
+          <li>Locker room access</li>
+          <li>Basic fitness orientation</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">SELECT INITIATE</a>
+      </article>
+
+      <article class="price-card featured reveal">
+        <span class="plan-label">LEVEL 02 / MOST POPULAR</span>
+        <h3>EVOLVER</h3>
+        <p style="color:var(--muted)">For serious progress.</p>
+        <div class="price">$59<small> / month</small></div>
+        <ul>
+          <li>Everything in Initiate</li>
+          <li>Group training sessions</li>
+          <li>Monthly progress review</li>
+          <li>Personal training consultation</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">SELECT EVOLVER</a>
+      </article>
+
+      <article class="price-card reveal">
+        <span class="plan-label">LEVEL 03 / ELITE</span>
+        <h3>OVERDRIVE</h3>
+        <p style="color:var(--muted)">For a more personalized journey.</p>
+        <div class="price">$99<small> / month</small></div>
+        <ul>
+          <li>Everything in Evolver</li>
+          <li>Personal coaching sessions</li>
+          <li>Customized training plan</li>
+          <li>Priority program consultation</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">SELECT OVERDRIVE</a>
+      </article>
+    </div>
+    <p style="color:var(--muted);margin-top:20px;font-size:14px">
+      Demo prices shown in USD. Replace with your gym's actual pricing and terms.
+    </p>
+  </section>
+
+  <section class="section bmi-section" id="bmi">
+    <div class="bmi-wrap">
+      <div class="bmi-info reveal">
+        <span class="eyebrow">Personal data terminal</span>
+        <h2>CHECK YOUR<br>STARTING POINT.</h2>
+        <p>
+          Enter your height and weight to calculate your Body Mass Index.
+          Use it as one general indicator, not a complete measure of health
+          or athletic performance.
+        </p>
+      </div>
+
+      <div class="bmi-box reveal">
+        <form id="bmiForm">
+          <div class="form-group">
+            <label for="units">Measurement system</label>
+            <select id="units">
+              <option value="metric">Metric (kg / cm)</option>
+              <option value="imperial">Imperial (lb / inches)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="weight" id="weightLabel">Weight (kg)</label>
+            <input type="number" id="weight" min="1" max="500"
+                   step="any" placeholder="e.g. 72" required>
+          </div>
+
+          <div class="form-group">
+            <label for="height" id="heightLabel">Height (cm)</label>
+            <input type="number" id="height" min="1" max="300"
+                   step="any" placeholder="e.g. 175" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%">
+            CALCULATE BMI ↗
+          </button>
+        </form>
+
+        <div class="bmi-result" id="bmiResult" aria-live="polite">
+          <h3 id="bmiValue">BMI: --</h3>
+          <p id="bmiCategory"></p>
+          <p id="bmiAdvice"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <span class="eyebrow">Your next chapter starts here</span>
+    <h2>YOUR FUTURE SELF<br>IS <span>WAITING.</span></h2>
+    <p>
+      Ready to start? Contact the team to ask about memberships,
+      training options or your first visit.
+    </p>
+    <a href="mailto:hello@cybercore.example?subject=CYBERCORE%204D%20Membership%20Enquiry"
+       class="btn btn-primary">CONTACT THE CORE ↗</a>
+  </section>
+</main>
+
+<footer>
+  <strong>CYBER<span style="color:var(--pink)">CORE</span> 4D</strong>
+  <span>TRAIN BEYOND LIMITS.</span>
+  <span>© <span id="year"></span> CYBERCORE FITNESS</span>
+</footer>
+
+<script>
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+menuToggle.addEventListener('click', () => {
+  const isOpen = navLinks.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', String(isOpen));
+  menuToggle.textContent = isOpen ? '✕' : '☰';
+});
+
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.textContent = '☰';
+  });
+});
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+const units = document.getElementById('units');
+const weight = document.getElementById('weight');
+const height = document.getElementById('height');
+const weightLabel = document.getElementById('weightLabel');
+const heightLabel = document.getElementById('heightLabel');
+const bmiResult = document.getElementById('bmiResult');
+
+units.addEventListener('change', () => {
+  const imperial = units.value === 'imperial';
+  weightLabel.textContent = imperial ? 'Weight (lb)' : 'Weight (kg)';
+  heightLabel.textContent = imperial ? 'Height (inches)' : 'Height (cm)';
+  weight.placeholder = imperial ? 'e.g. 160' : 'e.g. 72';
+  height.placeholder = imperial ? 'e.g. 69' : 'e.g. 175';
+  weight.max = imperial ? 1100 : 500;
+  height.max = imperial ? 120 : 300;
+  bmiResult.style.display = 'none';
+});
+
+document.getElementById('bmiForm').addEventListener('submit', event => {
+  event.preventDefault();
+
+  const w = Number(weight.value);
+  const h = Number(height.value);
+  const imperial = units.value === 'imperial';
+
+  if (!Number.isFinite(w) || !Number.isFinite(h) ||
+      w <= 0 || h <= 0) {
+    alert('Please enter a valid positive weight and height.');
+    return;
+  }
+
+  const heightMetres = imperial ? h * 0.0254 : h / 100;
+  const weightKg = imperial ? w * 0.45359237 : w;
+  const bmi = weightKg / (heightMetres * heightMetres);
+
+  if (!Number.isFinite(bmi) || bmi < 5 || bmi > 100) {
+    alert('Please check your height and weight values.');
+    return;
+  }
+
+  let category;
+  let advice;
+
+  if (bmi < 18.5) {
+    category = 'Below the standard adult reference range';
+    advice = 'Consider discussing your nutritional and fitness goals with a qualified health professional.';
+  } else if (bmi < 25) {
+    category = 'Within the standard adult reference range';
+    advice = 'Keep focusing on balanced nutrition, strength, movement and recovery.';
+  } else if (bmi < 30) {
+    category = 'Above the standard adult reference range';
+    advice = 'BMI is only one indicator. Consider your overall health, muscle mass and personal goals.';
+  } else {
+    category = 'Higher adult BMI range';
+    advice = 'BMI cannot diagnose health conditions. A qualified health professional can help interpret your result.';
+  }
+
+  document.getElementById('bmiValue').textContent = 'BMI: ' + bmi.toFixed(1);
+  document.getElementById('bmiCategory').textContent = category;
+  document.getElementById('bmiAdvice').textContent = advice;
+  bmiResult.style.display = 'block';
+});
+</script>
+
+</body>
+</html>
+```
